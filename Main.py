@@ -43,17 +43,29 @@ if __name__ == "__main__":
         4. Exit the Library
         '''
         print(welcomeMsg)
-        a = int(input("Enter a choice: "))
+        choice = 0
+        while choice == 0:
+            try:
+                a = int(input("Enter a choice: "))
+            except ValueError:
+                print("Invalid input!")
+                input()
+            else:
+                choice = 1
         if a == 1:
             centraLibrary.displayAvailableBooks()
+            input()
         elif a == 2:
             centraLibrary.borrowBook(student.requestBook())
+            input()
         elif a == 3:
             centraLibrary.returnBook(student.returnBook())
+            input()
         elif a == 4:
             print("Thanks for choosing Central Library. Have a great day ahead!")
             exit()
         else:
             print("Invalid Choice!")
+            input()
 
         
